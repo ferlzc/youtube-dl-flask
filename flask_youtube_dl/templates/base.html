@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>psDash - Linux system dashboard</title>
+        <link href="{{ url_for(".static", filename="css/bootstrap.min.css") }}" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div id="yt-dl">
+            <div class="header">
+                <div class="logo">
+                    <a href="{{ url_for(".index") }}">
+                        <span class="app-name"># Youtube Download <small>v0.1.0</small></span>
+                    </a>
+                </div>
+            </div>
+            <div class="table-container">
+                <div class="content">
+                    <div class="left-nav">
+                        <ul class="menu">
+                            <li {% if page == "overview" %}class="active"{% endif %}>
+                                <a href="{{ url_for(".index") }}">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                    <span class="option-text">Dashboard</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="main-content">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="{{ url_for(".static", filename="js/jquery.min.js") }}"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="{{ url_for(".static", filename="js/bootstrap.min.js") }}"></script>
+    </body>
+</html>
